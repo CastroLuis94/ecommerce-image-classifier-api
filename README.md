@@ -63,7 +63,18 @@ API will be available at:
 
 http://127.0.0.1:8000
 
-### Project Structure
+## Dataset
+
+The dataset was obtained from Kaggle and is not included in the repository due to licensing restrictions.
+
+You can download it from:
+
+https://www.kaggle.com/datasets/vikashrajluhaniwal/fashion-images
+
+---
+
+## 📁 Project Structure
+
 ecommerce-image-classifier-api/
 │
 ├── src/                # Training & model code
@@ -73,7 +84,13 @@ ecommerce-image-classifier-api/
 ├── main.py             # FastAPI application
 ├── requirements.txt
 └── README.md
-```bash
-Luis Castro
-Computer Science Analyst
+
+
+
+---
+
+## 👨‍💻 Author
+
+Luis Castro  
+Computer Science Analyst  
 Deep Learning & Computer Vision
