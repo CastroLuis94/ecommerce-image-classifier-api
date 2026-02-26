@@ -38,6 +38,7 @@ The API receives an image and returns:
 
 
 git clone https://github.com/CastroLuis94/ecommerce-image-classifier-api.git
+
 cd ecommerce-image-classifier-api
 
 ### 2️⃣ Create virtual environment
