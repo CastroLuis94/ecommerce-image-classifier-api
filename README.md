@@ -36,7 +36,7 @@ The API receives an image and returns:
 
 ### 1️⃣ Clone the repository
 
-```bash
+
 git clone https://github.com/CastroLuis94/ecommerce-image-classifier-api.git
 cd ecommerce-image-classifier-api
 
@@ -54,7 +54,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 
 
-▶️ Run the API
+### ▶️ Run the API
 
 uvicorn main:app --reload
 
@@ -62,7 +62,7 @@ API will be available at:
 
 http://127.0.0.1:8000
 
-Project Structure
+### Project Structure
 ecommerce-image-classifier-api/
 │
 ├── src/                # Training & model code
@@ -72,7 +72,7 @@ ecommerce-image-classifier-api/
 ├── main.py             # FastAPI application
 ├── requirements.txt
 └── README.md
-
+```bash
 Luis Castro
 Computer Science Analyst
 Deep Learning & Computer Vision
