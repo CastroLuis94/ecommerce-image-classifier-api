@@ -2,7 +2,8 @@ from fastapi import FastAPI, File, UploadFile
 from PIL import Image
 import torch
 from torchvision import transforms
-
+from fastapi import UploadFile, File, HTTPException
+import io
 app = FastAPI()
 
 # carga modelo
@@ -29,18 +30,26 @@ transform = transforms.Compose([
 ])
 
 class_names = [
-    "Apparel_Boys",
-    "Apparel_Girls",
-    "Footwear_Men",
-    "Footwear_Women"
+    "Apparel_Boys/Prenda_chico",
+    "Apparel_Girls/Prenda_chica",
+    "Footwear_Men/Calzado_hombre",
+    "Footwear_Women/Calzado_mujer"
 ]
 
-from fastapi import HTTPException
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
     try:
-        image = Image.open(file.file).convert("RGB")
+        # Leer correctamente el archivo
+        contents = await file.read()
+
+        if len(contents) == 0:
+            raise HTTPException(status_code=400, detail="Empty file")
+
+        # Convertir a imagen con PIL
+        image = Image.open(io.BytesIO(contents)).convert("RGB")
+
+        # Transformaciones
         x = transform(image).unsqueeze(0)
 
         with torch.no_grad():
@@ -55,5 +64,6 @@ async def predict(file: UploadFile = File(...)):
             "confidence": round(confidence, 4)
         }
 
-    except Exception:
+    except Exception as e:
+        print("ERROR:", str(e))  # 🔎 ahora vas a ver el error real en logs
         raise HTTPException(status_code=400, detail="Invalid image file")
