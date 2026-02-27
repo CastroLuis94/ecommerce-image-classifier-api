@@ -7,4 +7,4 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY src ./src
-COPY model.pth ./   # solo si está en raíz
+COPY best_model.pth ./   # solo si está en raíz
